@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build_docs_git": "ng build --output-path docs --base-href tile_expert",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
