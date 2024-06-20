@@ -9,6 +9,4 @@ import { HeaderComponent } from './header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'tile_expert';
-}
+export class AppComponent {}

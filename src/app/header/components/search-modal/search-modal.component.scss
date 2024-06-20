@@ -1,0 +1,107 @@
+.search-modal {
+  width: 100%;
+  color: #333;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow:
+    0px 4px 8px rgba(93, 95, 97, 0.14),
+    0px 4px 16px rgba(93, 95, 97, 0.14);
+  position: absolute;
+  top: 50px;
+  right: 0;
+
+  // animation: startInAnim 0.3s ease;
+}
+
+.history {
+  border-right: 1px solid #e1e4e6;
+  padding: 20px 16px;
+
+  &-list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    li {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+}
+
+.filters {
+  padding: 24px;
+  font-size: 14px;
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__checkboxes {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-left: 14px;
+
+    label {
+      display: flex;
+      cursor: pointer;
+      gap: 14px;
+
+      input[type='checkbox'] {
+        width: 18px;
+        height: 18px;
+        accent-color: #007bff;
+      }
+    }
+  }
+}
+
+@keyframes startInAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-input {
+  height: 48px;
+  position: absolute;
+  right: 0;
+  // top: 50px;
+  top: -50%;
+  // top: -5px;
+  max-width: 0px;
+  overflow: hidden;
+  border: none;
+  transition: all 0.5s ease;
+  opacity: 0;
+
+  &.--opened {
+    max-width: 1000px;
+    overflow: visible;
+    opacity: 1;
+  }
+}
+
+.search-submit {
+  width: 80px;
+  height: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 4px;
+}

@@ -1,0 +1,54 @@
+<div
+  class="search-input"
+  [style.width.px]="searchInputWidth + 64"
+  [class.--opened]="searchState"
+  [formGroup]="parentFormGroup"
+>
+  <input
+    type="text"
+    class="input-styled"
+    placeholder="Поисковый запрос"
+    formControlName="search"
+    (focus)="searchFocus = true"
+  />
+
+  <div class="search-modal" *ngIf="searchState" [@fade]="searchFocus ? 'visible' : 'hidden'">
+    <div class="history">
+      <div class="h6-gray">История</div>
+
+      <ul class="history-list">
+        @for (item of history; track $index) {
+          @if ($index < 6) {
+            <li (click)="selectHistory.emit(item)">{{ item }}</li>
+          }
+        }
+      </ul>
+    </div>
+
+    <div class="filters">
+      <div class="name-prof">
+        <div class="material-input">
+          <div class="material-input__title h6-gray">Автор</div>
+          <input type="text" placeholder="Имя или должность" /><br />
+        </div>
+
+        <div class="filters__checkboxes">
+          <label><input type="checkbox" /> Я участник</label><br />
+          <label><input type="checkbox" /> Строгий поиск</label><br />
+          <label><input type="checkbox" /> В заголовках</label>
+        </div>
+      </div>
+
+      <div>
+        <div class="filters__title">Только</div>
+        <div class="filters__checkboxes">
+          <label><input type="checkbox" /> Теги</label><br />
+          <label><input type="checkbox" /> Просьбы</label><br />
+          <label><input type="checkbox" /> Контакты</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="search-submit btn btn--reset btn--opacity btn--yellow">Найти</button>
+</div>

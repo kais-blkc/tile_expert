@@ -1,0 +1,24 @@
+<div class="search">
+  <div class="icon-btn btn btn--reset btn--opacity" (click)="searchState = !searchState">
+    <img src="assets/img/search.svg" alt="" />
+  </div>
+
+  <form [formGroup]="searchForm">
+    @if (pageWidth > 990) {
+      <app-search-modal
+        (selectHistory)="setFormValue('search', $event)"
+        (toggleSearchState)="searchState = $event"
+        [searchInputWidth]="searchInputWidth"
+        [parentElementRef]="elementRef"
+        [searchState]="searchState"
+        [parentFormGroup]="searchForm"
+      ></app-search-modal>
+    } @else {
+      <app-search-modal-mobile
+        [searchState]="searchState"
+        [parentFormGroup]="searchForm"
+        (toggleSearchState)="searchState = $event"
+      ></app-search-modal-mobile>
+    }
+  </form>
+</div>

@@ -1,56 +1,24 @@
 <header class="header">
-  <div class="burger icon-btn">
-    <img src="assets/img/burger-lines.svg" alt="" />
-  </div>
+  @if (pageWidth < 990) {
+    <div class="burger icon-btn">
+      <img src="assets/img/burger-lines.svg" alt="" />
+    </div>
+  }
 
   <div class="logo">
     <img src="assets/img/tile-logo.svg" alt="" />
   </div>
 
-  <div class="navbar d-none-max-lg" #headerNavbar>
-    <a href="#" class="navbar__item">
-      <img src="assets/img/link.svg" alt="" />
-      <span>Ссылки</span>
-    </a>
-    <a href="#" class="navbar__item">
-      <img src="assets/img/people.svg" alt="" />
-      <span>Контакты</span>
-    </a>
-    <a href="#" class="navbar__item">
-      <img src="assets/img/hash.svg" alt="" />
-      <span>Теги</span>
-    </a>
-    <a href="#" class="navbar__item">
-      <img src="assets/img/star.svg" alt="" />
-      <span>Избранное</span>
-    </a>
-    <a href="#" class="navbar__item">
-      <img src="assets/img/restart.svg" alt="" />
-      <span>Посещения</span>
-    </a>
-  </div>
+  <app-navbar #headerNavbar></app-navbar>
 
   <div class="other-btns">
-    <a href="#" class="d-none-min-lg icon-btn">
-      <img src="assets/img/restart.svg" alt="" />
-    </a>
+    @if (pageWidth < 990) {
+      <a href="#" class="icon-btn">
+        <img src="assets/img/restart.svg" alt="" />
+      </a>
+    }
 
-    <div class="search">
-      <div class="icon-btn btn btn--reset btn--opacity">
-        <img src="assets/img/search.svg" alt="" />
-      </div>
-
-      <form [formGroup]="searchForm">
-        <div class="search-input" [style.width.px]="navbarWidth">
-          <input
-            type="text"
-            class="input-styled"
-            placeholder="Поисковый запрос"
-            formControlName="search"
-          />
-        </div>
-      </form>
-    </div>
+    <app-header-search [searchInputWidth]="headerNavbar.offsetWidth"></app-header-search>
 
     <button class="add btn btn--reset btn--opacity icon-btn">
       <img src="assets/img/plus.svg" alt="" />
@@ -61,40 +29,12 @@
       <img src="assets/img/notification.svg" alt="" />
     </button>
 
-    <div class="profile d-none-max-lg">
-      <button class="avatar btn btn--reset btn--opacity">
-        <img src="assets/img/avatar.png" alt="" />
-      </button>
-    </div>
+    @if (pageWidth > 990) {
+      <div class="profile">
+        <button class="avatar btn btn--reset btn--opacity">
+          <img src="assets/img/avatar.png" alt="" />
+        </button>
+      </div>
+    }
   </div>
-
-  @if (false) {
-  <div class="search-container">
-    <input type="text" placeholder="Поисковый запрос" />
-    <div class="dropdown">
-      <div>
-        <h3>История</h3>
-        <p>закрепить теги</p>
-        <p>кнопка</p>
-        <p>приложение</p>
-        <p>форма</p>
-        <p>текстовое поле</p>
-        <p>выпадающий список</p>
-      </div>
-      <div>
-        <h3>Автор</h3>
-        <input type="text" placeholder="Имя или должность" /><br />
-        <label><input type="checkbox" /> Я участник</label><br />
-        <label><input type="checkbox" /> Строгий поиск</label><br />
-        <label><input type="checkbox" /> В заголовках</label>
-      </div>
-      <div>
-        <h3>Только</h3>
-        <label><input type="checkbox" /> Теги</label><br />
-        <label><input type="checkbox" /> Просьбы</label><br />
-        <label><input type="checkbox" /> Контакты</label>
-      </div>
-    </div>
-  </div>
-  }
 </header>

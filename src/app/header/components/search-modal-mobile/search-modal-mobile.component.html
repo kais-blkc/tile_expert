@@ -1,0 +1,44 @@
+<!-- @if (searchState) { -->
+<div
+  class="search-modal-mobile"
+  [@fade]="searchState ? 'visible' : 'hidden'"
+  [formGroup]="parentFormGroup"
+>
+  <div class="search-modal-mobile__input">
+    <button class="btn btn--reset btn--opacity" (click)="toggleSearchState.emit(false)">
+      <img src="assets/img/arrow-left.svg" />
+    </button>
+
+    <input
+      type="text"
+      class="input-styled"
+      placeholder="Поисковый запрос"
+      formControlName="search"
+    />
+  </div>
+
+  <div class="filters">
+    <div class="name-prof">
+      <div class="material-input">
+        <div class="material-input__title h6-gray">Автор</div>
+        <input type="text" placeholder="Имя или должность" /><br />
+      </div>
+
+      <div class="filters__checkboxes">
+        <app-custom-checkbox text="Я участник"></app-custom-checkbox>
+        <app-custom-checkbox text="Строгий поиск"></app-custom-checkbox>
+        <app-custom-checkbox text="В заголовках"></app-custom-checkbox>
+      </div>
+    </div>
+
+    <div>
+      <div class="filters__title">Только</div>
+      <div class="filters__checkboxes">
+        <app-custom-checkbox text="Теги"></app-custom-checkbox>
+        <app-custom-checkbox text="Просьбы"></app-custom-checkbox>
+        <app-custom-checkbox text="Контакты"></app-custom-checkbox>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- } -->
